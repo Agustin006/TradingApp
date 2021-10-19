@@ -21,14 +21,14 @@ def hello():
     if request_type_str == "GET":
         # graph(ticker="AAPL")
         # picture = "static/" + "AAPL" + ".png"
-        return render_template("hello.html", href = "static/AAPL.png")        
+        return render_template("hello.html", href = "app/static/AAPL.png")        
     else:
         #if is post
         tickerweb = str(request.form["text1"])
         graph(ticker=tickerweb)
         plt.switch_backend('agg')
-        picture = "static/" + tickerweb + ".png"
-        return render_template("hello.html", href = picture)
+        picture = "app/static/" + tickerweb + ".png"
+        return render_template("hello.html", href = picture[4:])
         # graph(ticker=ticker)
         # pic1= os.path.join(app.config["UPLOAD_FOLDER"], "pics.png")
         # return render_template("hello.html", user_image=pic1)
